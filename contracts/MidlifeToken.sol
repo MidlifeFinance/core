@@ -95,14 +95,14 @@ contract MidlifeToken is BEP20 {
         return true;
     }
 
-    // Transfer function to handling antidump and locked balances
+    // Transfer function to handle antidump and locked balances
     function transfer(address recipient, uint256 amount) public override returns (bool) {
         address sender = _msgSender();
         require(validTransfer(sender, recipient, amount));
         return super.transfer(recipient, amount);
     }
 
-    // Transfer From function to handling antidump and locked balances
+    // Transfer From function to handle antidump and locked balances
     function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
         require(validTransfer(sender, recipient, amount));
         return super.transferFrom(sender, recipient, amount);
